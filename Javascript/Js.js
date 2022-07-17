@@ -1,3 +1,25 @@
+class Usuario {
+    constructor (nombre, apellido, edad, inversion) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.inversion = inversion;
+    }
+
+}
+const crearUsuario = ()=> {
+let nombreUsuario = prompt("Ingrese nombre:");
+let apellidoUsuario = prompt("ingrese apellido:");
+let edadUsuario = parseInt(prompt("Ingrese edad:"));
+let inversionUsuario = parseInt(prompt("Ingrese su inversion:"));
+
+const usuario1 = new Usuario(nombreUsuario, apellidoUsuario, edadUsuario, inversionUsuario);
+
+
+    return usuario1; 
+}
+
+
 
 let inversion = parseInt(prompt("Cuanto desea invertir?: "));
 
