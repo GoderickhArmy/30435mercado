@@ -1,23 +1,40 @@
 class Usuario {
-    constructor (nombre, apellido, edad, inversion) {
+    constructor(nombre, apellido, edad, inversion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.inversion = inversion;
     }
 
+
+
 }
-const crearUsuario = ()=> {
-let nombreUsuario = prompt("Ingrese nombre:");
-let apellidoUsuario = prompt("ingrese apellido:");
-let edadUsuario = parseInt(prompt("Ingrese edad:"));
-let inversionUsuario = parseInt(prompt("Ingrese su inversion:"));
-
-const usuario1 = new Usuario(nombreUsuario, apellidoUsuario, edadUsuario, inversionUsuario);
 
 
-    return usuario1; 
+const crearUsuario = () => {
+
+    let usuariosExistentes = []
+
+    let nombreUsuario = prompt("Ingrese nombre:");
+    let apellidoUsuario = prompt("ingrese apellido:");
+    let edadUsuario = parseInt(prompt("Ingrese edad:"));
+    let inversionUsuario = parseInt(prompt("Ingrese su inversion:"));
+
+    const usuario1 = new Usuario(nombreUsuario, apellidoUsuario, edadUsuario, inversionUsuario);
+
+    return (usuario1);
+    usuariosExistentes.push(usuario1);
+
+
+    let verUsuario = prompt("Desea ver el usuario creado?:")
+    if (verUsuario.toLowerCase == "si") {
+        console.log(usuariosExistentes);
+    } if (verUsuario.toLowerCase == "no") {
+        prompt("Hasta luego!");
+    }
+
 }
+
 
 
 
@@ -44,3 +61,6 @@ function invest(inversion) {
 }
 
 invest(inversion);
+
+
+
