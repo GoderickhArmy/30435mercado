@@ -46,7 +46,6 @@ const crearUsuario = () => {
 
     const usuario1 = new Usuario(nombreUsuario, apellidoUsuario, edadUsuario, inversionUsuario);
 
-    return (usuario1);
     usuariosExistentes.push(usuario1);
 
 }
@@ -68,5 +67,5 @@ let verUsuario = prompt("Desea ver el usuario creado? S/N:")
     } if (verUsuario.toUpperCase() == 'N') {
         alert("Hasta luego!");
 }
-    
+
 
