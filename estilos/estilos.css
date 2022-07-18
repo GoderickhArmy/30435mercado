@@ -34,14 +34,19 @@
 .foot{
     display: flex;
     justify-content: center;
-    margin-top: 41.3rem;
-    padding-bottom: 3rem;
+    margin-top: 15rem;
+    padding-bottom: 1.5rem;
     background:linear-gradient(120deg, black, black, gold, gold);
-    color: rgba(245, 245, 245, 0.541);
-    font-family: 'Raleway', sans-serif;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
+    font-size: 5px;
 }
 
+.foot h5{
+    font-size: 14px;
+    color: rgba(245, 245, 245, 0.541);
+    font-family: 'Raleway', sans-serif;
+    margin-top: 1rem;
+}
 
 .hoover:hover{
     color: rgb(207, 191, 96);
@@ -64,8 +69,8 @@ body{
 }
 
 .formularioinversion{
-
-    margin-top: 5rem;
-    margin-right: 40rem;
-    margin-left: 40rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+    margin-bottom: 0.2rem;
 }
