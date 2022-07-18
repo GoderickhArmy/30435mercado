@@ -1,27 +1,31 @@
-let inversion = parseInt(prompt("Cuanto desea invertir?: "));
+let usuarioentrante = prompt("Desea calcular inversion? S/N: ")
 
-function invest(inversion) {
+if (usuarioentrante.toUpperCase() == 'S') {
 
-    if (inversion < 1000 || isNaN(inversion)) {
-        alert("Error, la inversion debe ser mayor a Mil");
-    } else {
-        let intereses = parseFloat(prompt("Interes anual?: "));
-        if (intereses == 0) {
-            alert("Error: El interes no puede ser cero");
+
+    let inversion = parseInt(prompt("Cuanto desea invertir?: "));
+
+    invest(inversion);
+    function invest(inversion) {
+
+        if (inversion < 1000 || isNaN(inversion)) {
+            alert("Error, la inversion debe ser mayor a Mil");
         } else {
-            let años = parseInt(prompt("Años?: "));
+            let intereses = parseFloat(prompt("Interes anual?: "));
+            if (intereses == 0) {
+                alert("Error: El interes no puede ser cero");
+            } else {
+                let años = parseInt(prompt("Años?: "));
 
-            for (let i = 1; i <= años; i++) {
-                inversion += 1 + intereses / 100;
-                alert("Capital tras " + i + " años $" + parseInt(inversion));
+                for (let i = 1; i <= años; i++) {
+                    inversion += 1 + intereses / 100;
+                    alert("Capital tras " + i + " años $" + parseInt(inversion));
+                }
             }
-        }
 
+        }
     }
 }
-
-invest(inversion);
-
 
 class Usuario {
     constructor(nombre, apellido, edad, inversion) {
@@ -31,17 +35,12 @@ class Usuario {
         this.inversion = inversion;
     }
 
-
-
 }
-
 
 const crearUsuario = () => {
 
-    let usuariosExistentes = []
-
     let nombreUsuario = prompt("Ingrese nombre:");
-    let apellidoUsuario = prompt("ingrese apellido:");
+    let apellidoUsuario = prompt("Ingrese apellido:");
     let edadUsuario = parseInt(prompt("Ingrese edad:"));
     let inversionUsuario = parseInt(prompt("Ingrese su inversion:"));
 
@@ -52,18 +51,22 @@ const crearUsuario = () => {
 
 }
 
-let decisionUsuario = prompt("Desea crear un usuario?");
+let usuariosExistentes = [];
 
-if(decisionUsuario.toLowerCase == 'si'){
+let decisionUsuario = prompt("Desea crear un usuario? S/N");
+
+if (decisionUsuario.toUpperCase() == 'S') {
     crearUsuario();
-
-let verUsuario = prompt("Desea ver el usuario creado?:")
-if (verUsuario.toLowerCase == 'si') {
-    console.log(usuariosExistentes);
-} if (verUsuario.toLowerCase == "no") {
-    alert("Hasta luego!");
-}else {
-    alert("Que tenga un buen dia");
 }
 
+
+
+
+let verUsuario = prompt("Desea ver el usuario creado? S/N:")
+    if (verUsuario.toUpperCase() == 'S') {
+        console.log(usuariosExistentes);
+    } if (verUsuario.toUpperCase() == 'N') {
+        alert("Hasta luego!");
 }
+    
+
