@@ -1,71 +1,71 @@
-let usuarioentrante = prompt("Desea calcular inversion? S/N: ");
+//Array------------------------------------
 
-if (usuarioentrante.toUpperCase() == 'S') {
+let usuariosExistentes = [];
+
+//DATA-------------------------------------
 
 
-    let inversion = parseInt(prompt("Cuanto desea invertir?: "));
+let nombre = document.querySelector("#nombre")
+let apellido = document.querySelector("#apellido");
+let edad = document.querySelector("#edad");
+let inversion = document.querySelector("#inversion");
+let lista = document.createElement("ul");
+let mostrarUsuario = document.querySelector("#usuarios");
+let boton = document.querySelector("#enviar");
 
-    invest(inversion);
 
-}
-
-function invest(inversion) {
-
-    if (inversion < 1000 || isNaN(inversion)) {
-        alert("Error, la inversion debe ser mayor a Mil");
-    } else {
-        let intereses = parseFloat(prompt("Interes anual?: "));
-        if (intereses == 0) {
-            alert("Error: El interes no puede ser cero");
-        } else {
-            let años = parseInt(prompt("Años?: "));
-
-            for (let i = 1; i <= años; i++) {
-                inversion += 1 + intereses / 100;
-                alert("Capital tras " + i + " años $" + parseInt(inversion));
-            }
-        }
-
-    }
-}
-
+//Class and constr--Arrowfuntion-------------------------
 
 class Usuario {
     constructor(nombre, apellido, edad, inversion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
-        this.inversion = inversion;
+        this.inversion = parseFloat(inversion);
     }
-
-}
+};
 
 const crearUsuario = () => {
-
-    let nombreUsuario = prompt("Ingrese nombre:");
-    let apellidoUsuario = prompt("Ingrese apellido:");
-    let edadUsuario = parseInt(prompt("Ingrese edad:"));
-    let inversionUsuario = parseInt(prompt("Ingrese su inversion:"));
-
-    const usuario1 = new Usuario(nombreUsuario, apellidoUsuario, edadUsuario, inversionUsuario);
-
+    const usuario1 = new Usuario(nombre.value, apellido.value, edad.value, inversion.value);
     usuariosExistentes.push(usuario1);
-
-}
-
-let usuariosExistentes = [];
-
-let decisionUsuario = prompt("Desea crear un usuario? S/N");
-
-if (decisionUsuario.toUpperCase() == 'S') {
-    crearUsuario();
-}
+};
 
 
-let verUsuario = prompt("Desea ver el usuario creado? S/N:")
-if (verUsuario.toUpperCase() == 'S') {
-    console.log("Usuarios:");
-    usuariosExistentes.forEach(elemento => console.log(`Nombre:${elemento.nombre}\nApellido:${elemento.apellido}\nEdad:${elemento.edad}\nInversion:${elemento.inversion}`));
-} if (verUsuario.toUpperCase() == 'N') {
-    alert("Hasta luego!");
-}
+//EVENTO/DOM------------------------------------------------------------------------------
+
+boton.addEventListener("click", elemento => {
+    elemento.preventDefault();
+    mostrarUsuario.innerHTML = " ";
+    if (edad.value < 18) {
+        mostrarUsuario.innerHTML = `<p class= "text-danger">Necesita ser mayor de edad!</p>`
+    } else if (inversion.value == 0) {
+        mostrarUsuario.innerHTML = `<p class= "text-danger"> Error, ingrese el monto a invertir!</p>`
+    } else {
+        crearUsuario()
+        let anos = document.querySelector("#years");
+        usuariosExistentes.forEach(elemento => {
+            lista.innerHTML = 
+            `<div class="containerServicios">
+            <figure>
+                <div class="capa">
+
+                    <h3 class="h4tituloservicio">Ultima actualizacion</h3>
+
+                    <li>Nombre: ${elemento.nombre}</li>
+                    <li>Apellido: ${elemento.apellido}</li>
+                    <li>Edad: ${elemento.edad}</li>
+                    <li>Inversion: ${elemento.inversion}</li></p>
+
+                    <img class="imgservicio" src="./img/dinero.jpg" alt="">
+                    
+
+            </div>
+            </figure>
+            </div> `
+        });
+
+        mostrarUsuario.appendChild(lista);
+        console.log(usuariosExistentes);
+
+    }
+});
