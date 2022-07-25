@@ -65,7 +65,7 @@ boton.addEventListener("click", elemento => {
         });
 
         mostrarUsuario.appendChild(lista);
-        console.log(usuariosExistentes);
+
 
     }
 });
