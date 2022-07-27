@@ -92,7 +92,7 @@ body{
     padding: 16px;
 }
 
-.containerServicios figure{
+.containerServicios .figure{
     position: relative;
     height: 350px;
     width: 450px;
@@ -101,7 +101,7 @@ body{
     box-shadow: 0px 15px 25px rgba(0,0,0,0.50);
 }
 
-.containerServicios figure .capa h3{
+.containerServicios .capa h3{
     color: whitesmoke;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400px;
@@ -109,7 +109,7 @@ body{
     transition: all 500ms ease-out;
 }
 
-.capa li{
+.capa ul{
     color: whitesmoke;
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
@@ -117,15 +117,16 @@ body{
     width: 100%;
     max-width: 220px;
     margin: auto;
+    padding-left: 0;
 
 }
-.containerServicios figure .imgservicio{
+.containerServicios .figure .imgservicio{
     width:100%;
     height: 100%;
     transition: all 500ms ease-out ;
 }
 
-.containerServicios figure .capa{
+.containerServicios .figure .capa{
     position: absolute;
     top: 0;
     width: 100%;
@@ -137,13 +138,13 @@ body{
     text-align: center;
 }
 
-.containerServicios figure:hover > .capa{
+.containerServicios .figure:hover > .capa{
     opacity: 1;
     visibility:visible;
 }
 
 
-.containerServicios figure:hover > .capa h3{
+.containerServicios .figure:hover > .capa h3{
     margin-top: 70px;
     margin-bottom: 15px;
 
