@@ -14,7 +14,7 @@ let years = document.querySelector("#years");
 
 
 class Usuario {
-    constructor(nombre, apellido, edad, inversion) {
+    constructor(nombre, apellido, edad, inversion, years) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -56,7 +56,7 @@ boton.addEventListener("click", elemento => {
                     <li>Apellido: ${elemento.apellido}</li>
                     <li>Edad: ${elemento.edad}</li>
                     <li>Inversion: ${elemento.inversion}</li>
-                    <li>Ganancia:${elemento.calculoGanancia()}</li>
+                    <li class="green">Ganancia: ${elemento.calculoGanancia()}</li>
                     </ul>
                     <img class="imgservicio" src="./img/dinero.jpg" alt="">
                     
