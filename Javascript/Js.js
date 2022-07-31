@@ -76,6 +76,8 @@ boton.addEventListener("click", elemento => {
 });
 
 
+//GANANCIA OBTENIDA (BOTON)
+
 
 function mostrar(){
     
