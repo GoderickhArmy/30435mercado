@@ -75,10 +75,11 @@ boton.addEventListener("click", elemento => {
 //GANANCIA OBTENIDA (BOTON)
 
 function mostrar(){
+    
     let mostrarGanancia = JSON.parse(localStorage.getItem("ganancia"));
     gains.innerHTML = `<h5> Ganancia: ${mostrarGanancia}</h5>`;
     console.log(mostrarGanancia);
 }
 
 
-gananciaObtenida.addEventListener("click", mostrar);
+butt.addEventListener("click", mostrar);

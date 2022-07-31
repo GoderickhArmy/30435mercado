@@ -87,9 +87,8 @@ body{
 
 .userbox{
     display: flex;
-    justify-content: center;
-    margin: 16px;
-    padding: 16px;
+    align-items: stretch;
+    margin: 8rem;
 }
 
 .containerServicios .figure{
@@ -167,7 +166,11 @@ body{
     margin-left: 2rem;
 }
 
-#mostrarganancia{
-    margin-bottom: 1px;
-    margin-left: -8rem;
+.flexing{
+    display: flex;
+    justify-content: center;
 } 
+
+#mostrarganancia{
+    margin-top: -10rem;
+}
