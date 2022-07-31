@@ -164,11 +164,10 @@ body{
 }
 
 #gananciaObtenida{
-    margin-left: 26rem;
+    margin-left: 2rem;
 }
 
 #mostrarganancia{
-    margin-left: 37rem;
     margin-top: -4rem;
-
-}
+    margin-left: 36px;
+} 
