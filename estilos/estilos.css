@@ -160,7 +160,7 @@ body{
 }
 
 .green{
-    color: greenyellow;
+    color: rgb(158, 246, 25);
 }
 
 #gananciaObtenida{
@@ -168,6 +168,6 @@ body{
 }
 
 #mostrarganancia{
-    margin-top: -4rem;
-    margin-left: 36px;
+    margin-bottom: 1px;
+    margin-left: -8rem;
 } 

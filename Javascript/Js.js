@@ -58,7 +58,7 @@ boton.addEventListener("click", elemento => {
                     <li>Apellido: ${elemento.apellido}</li>
                     <li>Edad: ${elemento.edad}</li>
                     <li>Inversion: ${elemento.inversion}</li>
-                    <li>Ganancia: ${elemento.calculoGanancia()}</li>
+                    <li class="green">Ganancia: ${elemento.calculoGanancia()}</li>
                     </ul>
                     <img class="imgservicio" src="./img/dinero.jpg" alt="">
                     
@@ -76,7 +76,7 @@ boton.addEventListener("click", elemento => {
 
 function mostrar(){
     let mostrarGanancia = JSON.parse(localStorage.getItem("ganancia"));
-    gains.innerHTML = `<h5> ${mostrarGanancia}</h5>`;
+    gains.innerHTML = `<h5> Ganancia: ${mostrarGanancia}</h5>`;
     console.log(mostrarGanancia);
 }
 
