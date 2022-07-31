@@ -1,5 +1,6 @@
 let usuariosExistentes = [];
 
+
 let nombre = document.querySelector("#nombre")
 let apellido = document.querySelector("#apellido");
 let edad = document.querySelector("#edad");
@@ -7,6 +8,7 @@ let inversion = document.querySelector("#inversion");
 let lista = document.createElement("ul");
 let mostrarUsuario = document.querySelector("#usuarios");
 let boton = document.querySelector("#enviar");
+let mosntarGanancia = document.querySelector("#mostrarganancia");
 let years = document.querySelector("#years");
 
 
@@ -23,10 +25,14 @@ class Usuario {
     }
 calculoGanancia() {
     let resultadoGanancia = (this.inversion * 100 / 50) * this.years;
+    localStorage.setItem("ganancia", JSON.stringify(resultadoGanancia));
     return resultadoGanancia;
 };
 
 };
+
+
+
 const crearUsuario = () => {
     const usuario1 = new Usuario(nombre.value, apellido.value, edad.value, inversion.value, years.value);
     usuariosExistentes.push(usuario1);
@@ -56,7 +62,6 @@ boton.addEventListener("click", elemento => {
                     <li>Apellido: ${elemento.apellido}</li>
                     <li>Edad: ${elemento.edad}</li>
                     <li>Inversion: ${elemento.inversion}</li>
-                    <li class="green">Ganancia: ${elemento.calculoGanancia()}</li>
                     </ul>
                     <img class="imgservicio" src="./img/dinero.jpg" alt="">
                     
@@ -69,3 +74,16 @@ boton.addEventListener("click", elemento => {
         mostrarUsuario.appendChild(lista);
     }
 });
+
+
+
+function mostrar(){
+    
+    gananciaObtenida.addEventListener("click", mostrar())
+    let mostrarGanancia = JSON.parse(localStorage.getItem("ganancia"));
+    mosntarGanancia.innerHTML = `<h5>: ${mostrarGanancia}</h5>`
+    console.log(mostrarGanancia);
+};
+
+
+

@@ -162,3 +162,13 @@ body{
 .green{
     color: greenyellow;
 }
+
+#gananciaObtenida{
+    margin-left: 26rem;
+}
+
+#mostrarganancia{
+    margin-left: 37rem;
+    margin-top: -4rem;
+
+}
