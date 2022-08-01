@@ -87,14 +87,15 @@ body{
 
 .userbox{
     display: flex;
-    align-items: stretch;
+    justify-content: center;
     margin: 8rem;
 }
 
+
 .containerServicios .figure{
     position: relative;
-    height: 350px;
-    width: 450px;
+    height: 250px;
+    width: 300px;
     overflow: hidden;
     border-radius: 6px;
     box-shadow: 0px 15px 25px rgba(0,0,0,0.50);
@@ -172,5 +173,12 @@ body{
 } 
 
 #mostrarganancia{
-    margin-top: -10rem;
+    padding-top: 2rem;
+    font-family:'Raleway', sans-serif;
+
+}
+
+#mostrarganancia h5{
+    font-size: xx-large;
+    
 }
