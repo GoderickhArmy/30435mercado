@@ -64,6 +64,7 @@
 }
 
 body{
+    color:white;
     width: 100%;
     height: 100vh;
     background: linear-gradient(45deg, black, black,rgb(224, 191, 4), rgb(223, 190, 7));
@@ -92,7 +93,7 @@ body{
 }
 
 .userbox ul{
-    color: antiquewhite;
+    color: white;
 }
 
 .innerbox{
@@ -108,12 +109,12 @@ body{
     border-radius: 5px;
     padding-left: 5px;
     padding-right: 5px;
-    color: antiquewhite;
+    color: white;
 
 }
 
 .green{
-    color: rgb(158, 246, 25);
+    color: rgb(144, 235, 8);
 }
 
 #gananciaObtenida{
