@@ -34,7 +34,7 @@ const crearUsuario = () => {
     usuariosExistentes.push(usuario1);
 };
 
-//EVENTO/DOM------------------------------------------------------------------------------
+// Implementacion de sweet alert para las validaciones en el formulario
 
 function Alertasweet() {
     Swal.fire({
@@ -42,6 +42,8 @@ function Alertasweet() {
         text: 'Campo vacio, por favor rellene los campos!',
     })
 };
+
+
 
 boton.addEventListener("click", elemento => {
 
@@ -90,7 +92,7 @@ boton.addEventListener("click", elemento => {
     };
 });
 
-//GANANCIA OBTENIDA (BOTON)
+//Muestra la ganancia obtenida previamente almacenada en el Localstorage al presionar un botón
 
 function mostrar(e) {
 
