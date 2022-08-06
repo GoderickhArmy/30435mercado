@@ -22,11 +22,11 @@ class Usuario {
         this.years = parseInt(years);
     }
 
-calculoGanancia() {
-    let resultadoGanancia = (this.inversion * 100 / 50) * this.years;
-    localStorage.setItem("ganancia", JSON.stringify(resultadoGanancia));
-    return resultadoGanancia;
-};
+    calculoGanancia() {
+        let resultadoGanancia = (this.inversion * 100 / 50) * this.years;
+        localStorage.setItem("ganancia", JSON.stringify(resultadoGanancia));
+        return resultadoGanancia;
+    };
 
 };
 const crearUsuario = () => {
@@ -36,36 +36,54 @@ const crearUsuario = () => {
 
 //EVENTO/DOM------------------------------------------------------------------------------
 
+function Alertasweet() {
+    Swal.fire({
+        icon: 'error',
+        text: 'Campo vacio, por favor rellene los campos!',
+    })
+};
+
 boton.addEventListener("click", elemento => {
+
     elemento.preventDefault();
     mostrarUsuario.innerHTML = " ";
-    if (edad.value < 18) {
-        mostrarUsuario.innerHTML = `<p class= "text-danger">Necesita ser mayor de edad!</p>`
-    } else if (inversion.value == 0) {
-        mostrarUsuario.innerHTML = `<p class= "text-danger"> Error, ingrese el monto a invertir!</p>`
-    } else {
+
+    if (nombre.value == '' || apellido.value == '') {
+        Alertasweet()
+    }
+    else if (edad.value == '') {
+        Alertasweet()
+    }
+    else if (edad.value < 18) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Necesita ser mayor de edad!',
+        })
+    }
+    else if (inversion.value == '') {
+        Alertasweet()
+    }
+    else if (years.value == '') {
+        Alertasweet()
+    }
+    else {
         crearUsuario()
+
         usuariosExistentes.forEach(elemento => {
-            lista.innerHTML =
-                `<div class="containerServicios">
-            <div class="figure">
-                <div class="capa">
+            lista.innerHTML = `
 
-                    <h3 class="h4tituloservicio">Ultima actualizacion</h3>
+            <div class="innerbox">
+            <h3>Ultima actualizacion</h3>
 
-                    <ul>
-                    <li>Nombre: ${elemento.nombre}</li>
-                    <li>Apellido: ${elemento.apellido}</li>
-                    <li>Edad: ${elemento.edad}</li>
-                    <li>Inversion: ${elemento.inversion}</li>
-                    <li class="green">Ganancia: ${elemento.calculoGanancia()}</li>
-                    </ul>
-                    <img class="imgservicio" src="./img/dinero.jpg" alt="">
-                    
-
-            </div>
-            </div>
-            </div> `
+            <ul>
+            <li>Nombre: ${elemento.nombre}</li>
+            <li>Apellido: ${elemento.apellido}</li>
+            <li>Edad: ${elemento.edad}</li>
+            <li>Inversion: ${elemento.inversion}</li>
+            <li class="green">Ganancia: ${elemento.calculoGanancia()}</li>
+            </ul>
+            </div>`
         });
 
         mostrarUsuario.appendChild(lista);
@@ -74,10 +92,11 @@ boton.addEventListener("click", elemento => {
 
 //GANANCIA OBTENIDA (BOTON)
 
-function mostrar(e){
+function mostrar(e) {
+
     e.preventDefault()
     let mostrarGanancia = JSON.parse(localStorage.getItem("ganancia"));
-    gains.innerHTML = `<h5> Ganancia: ${mostrarGanancia}</h5>`;
+    gains.innerHTML = `<div class="boxGains"><h5> Ganancia: ${mostrarGanancia}</h5></div>`;
     console.log(mostrarGanancia);
 }
 
