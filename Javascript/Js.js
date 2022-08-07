@@ -1,3 +1,5 @@
+//Array vacio donde va a ir el usuario que se cree
+
 let usuariosExistentes = [];
 
 let nombre = document.querySelector("#nombre")
@@ -21,6 +23,8 @@ class Usuario {
         this.inversion = parseFloat(inversion);
         this.years = parseInt(years);
     }
+    
+// Lleva la ganancia del 50% al LocalStorage para ser mostrada mas adelante en un boton.
 
     calculoGanancia() {
         let resultadoGanancia = (this.inversion * 100 / 50) * this.years;
@@ -35,6 +39,8 @@ const crearUsuario = () => {
 };
 
 // Implementacion de sweet alert para las validaciones en el formulario
+//En este caso utilice una funcion con sweet alert en donde me indica 
+//que tengo que rellenar los campos.
 
 function Alertasweet() {
     Swal.fire({
@@ -42,6 +48,11 @@ function Alertasweet() {
         text: 'Campo vacio, por favor rellene los campos!',
     })
 };
+
+
+
+//Validaciones de formulario, en donde es obligatorio rellenar cada campo, 
+//ser mayor de edad y tener una inversion arriba de 2000.
 
 
 
@@ -66,12 +77,18 @@ boton.addEventListener("click", elemento => {
     else if (inversion.value == '') {
         Alertasweet()
     }
+    else if (inversion.value < 2000) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'La inversion tiene que ser mayor a 2000',
+        })
+    }
     else if (years.value == '') {
         Alertasweet()
     }
     else {
         crearUsuario()
-
         usuariosExistentes.forEach(elemento => {
             lista.innerHTML = `
 
@@ -92,7 +109,8 @@ boton.addEventListener("click", elemento => {
     };
 });
 
-//Muestra la ganancia obtenida previamente almacenada en el Localstorage al presionar un botón
+//Muestra la ganancia obtenida previamente almacenada en el Localstorage 
+//al presionar el boton "ver ganancia obtenida"
 
 function mostrar(e) {
 
