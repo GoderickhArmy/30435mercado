@@ -19,20 +19,18 @@ let nivel = document.querySelector("#nivelInversion");
 
 const infoArray = [{
 
-    nombre: "Nivel1",
+    nombre: "Nivel 1: 5%",
     indice: 5,},
 
 {
-    nombre: "Nivel2",
+    nombre: "Nivel 2: 10%",
     indice: 10,}];
 
 infoArray.forEach(elemento => {
     nivel.innerHTML += `<option value="${elemento.indice}" id="${elemento.nombre}">${elemento.nombre}</option>
-`
+`   
 });
-// let nivelSelec = infoArray.find(e => e.nombre === nivel.value);
 
-// nivelSelec.indice;
 
 
 //Class-constr-method-----------------------
@@ -44,13 +42,13 @@ class Usuario {
         this.edad = edad;
         this.inversion = parseFloat(inversion);
         this.years = parseInt(years);
-    }
+    };
     
 
 
     // Lleva la ganancia del 50% al LocalStorage para ser mostrada mas adelante en un boton.
 
-    calculoGanancia() {
+    calculoGanancia(indice) {
         let resultadoGanancia = (this.inversion * indice / 100) * this.years;
         localStorage.setItem("ganancia", JSON.stringify(resultadoGanancia));
         return resultadoGanancia;
@@ -141,8 +139,8 @@ function mostrar(e) {
     e.preventDefault()
     let mostrarGanancia = JSON.parse(localStorage.getItem("ganancia"));
     gains.innerHTML = `<div class="boxGains"><h5> Ganancia: ${mostrarGanancia}</h5></div>`;
-    console.log(mostrarGanancia);
-}
+
+};
 
 
 butt.addEventListener("click", mostrar);
