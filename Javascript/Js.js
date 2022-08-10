@@ -2,6 +2,7 @@
 
 let usuariosExistentes = [];
 
+let indice; 
 let nombre = document.querySelector("#nombre")
 let apellido = document.querySelector("#apellido");
 let edad = document.querySelector("#edad");
@@ -12,6 +13,27 @@ let boton = document.querySelector("#enviar");
 let butt = document.querySelector("#gananciaObtenida");
 let gains = document.querySelector("#mostrarganancia");
 let years = document.querySelector("#years");
+let nivel = document.querySelector("#nivelInversion");
+
+// Niveles de inversion
+
+const infoArray = [{
+
+    nombre: "Nivel1",
+    indice: 5,},
+
+{
+    nombre: "Nivel2",
+    indice: 10,}];
+
+infoArray.forEach(elemento => {
+    nivel.innerHTML += `<option value="${elemento.indice}" id="${elemento.nombre}">${elemento.nombre}</option>
+`
+});
+// let nivelSelec = infoArray.find(e => e.nombre === nivel.value);
+
+// nivelSelec.indice;
+
 
 //Class-constr-method-----------------------
 
@@ -24,10 +46,12 @@ class Usuario {
         this.years = parseInt(years);
     }
     
-// Lleva la ganancia del 50% al LocalStorage para ser mostrada mas adelante en un boton.
+
+
+    // Lleva la ganancia del 50% al LocalStorage para ser mostrada mas adelante en un boton.
 
     calculoGanancia() {
-        let resultadoGanancia = (this.inversion * 100 / 50) * this.years;
+        let resultadoGanancia = (this.inversion * indice / 100) * this.years;
         localStorage.setItem("ganancia", JSON.stringify(resultadoGanancia));
         return resultadoGanancia;
     };
@@ -36,6 +60,7 @@ class Usuario {
 const crearUsuario = () => {
     const usuario1 = new Usuario(nombre.value, apellido.value, edad.value, inversion.value, years.value);
     usuariosExistentes.push(usuario1);
+    return(usuario1);
 };
 
 // Implementacion de sweet alert para las validaciones en el formulario
@@ -88,22 +113,21 @@ boton.addEventListener("click", elemento => {
         Alertasweet()
     }
     else {
-        crearUsuario()
-        usuariosExistentes.forEach(elemento => {
+        let res = crearUsuario()
+        console.log(res);
             lista.innerHTML = `
 
             <div class="innerbox">
             <h3>Ultima actualizacion</h3>
 
             <ul>
-            <li>Nombre: ${elemento.nombre}</li>
-            <li>Apellido: ${elemento.apellido}</li>
-            <li>Edad: ${elemento.edad}</li>
-            <li>Inversion: ${elemento.inversion}</li>
-            <li class="green">Ganancia: ${elemento.calculoGanancia()}</li>
+            <li>Nombre: ${res.nombre}</li>
+            <li>Apellido: ${res.apellido}</li>
+            <li>Edad: ${res.edad}</li>
+            <li>Inversion: ${res.inversion}</li>
+            <li class="green">Ganancia: ${res.calculoGanancia(nivel.value)}</li>
             </ul>
             </div>`
-        });
 
         mostrarUsuario.appendChild(lista);
     };
