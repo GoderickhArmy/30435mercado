@@ -153,7 +153,8 @@ function mostrar(e) {
 butt.addEventListener("click", mostrar);
 
 
-
+//Funcion que dentro tiene los datos previamente cargados de forma local 
+//y mostrados mediante un boton en el html.
 
 function showme(e){
 e.preventDefault();
