@@ -82,7 +82,7 @@ body{
 .formularioinversion{
     display: flex;
     justify-content: center;
-    margin-top: 10rem;
+    margin-top: 5rem;
     margin-bottom: 0.2rem;
 }
 
@@ -137,3 +137,35 @@ body{
     font-size: xx-large;
     
 }
+
+.levels{
+    display: flex;
+    justify-content: center;
+}
+
+.levels div h2{
+    font-size: 2rem;
+    background-color: rgba(224, 182, 104, 0.5);
+    border-radius: 10px;
+    margin: 2rem;
+    padding: 0.3rem;
+    color: black;
+    font-family: 'Alex Brush', cursive;
+}
+
+#nivelesMostrados{
+    margin-left: 5rem;
+    margin-top: 10px;
+    width: 50%;
+    background-color: #21252947;
+    box-shadow:1px 1px 2px grey;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: white;
+}
+
+#mostrarNiveles{
+    margin-left: 5rem;
+}
+

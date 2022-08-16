@@ -14,17 +14,24 @@ let butt = document.querySelector("#gananciaObtenida");
 let gains = document.querySelector("#mostrarganancia");
 let years = document.querySelector("#years");
 let nivel = document.querySelector("#nivelInversion");
+let mostrarNiveles = document.querySelector("#mostrarNiveles");
+let nivelesMostrados = document.querySelector("#nivelesMostrados");
+
 
 // Niveles de inversion
 
 const infoArray = [{
 
     nombre: "Nivel 1: 5%",
-    indice: 5,},
-
-{
+    indice: 5,
+},{
     nombre: "Nivel 2: 10%",
-    indice: 10,}];
+    indice: 10,
+},{
+    nombre: "Nivel 3: 15%",
+    indice: 15,
+}];
+
 
 infoArray.forEach(elemento => {
     nivel.innerHTML += `<option value="${elemento.indice}" id="${elemento.nombre}">${elemento.nombre}</option>
@@ -136,7 +143,7 @@ boton.addEventListener("click", elemento => {
 
 function mostrar(e) {
 
-    e.preventDefault()
+    e.preventDefault();
     let mostrarGanancia = JSON.parse(localStorage.getItem("ganancia"));
     gains.innerHTML = `<div class="boxGains"><h5> Ganancia: ${mostrarGanancia}</h5></div>`;
 
@@ -144,3 +151,24 @@ function mostrar(e) {
 
 
 butt.addEventListener("click", mostrar);
+
+
+
+
+function showme(e){
+e.preventDefault();
+
+fetch("../data.json")
+
+    .then(res =>res.json())
+    .then(dato=> dato.forEach (e=> { 
+        nivelesMostrados.innerHTML +=`
+                    <ul>
+                    <li>Nombre: ${e.nombre}</li>
+                    <li>índice: ${e.indice}</li>
+                    <li>Inversión Mínima: ${e.inversionMinima}</li>
+                    </ul>`
+}));
+};
+
+mostrarNiveles.addEventListener("click", showme);
