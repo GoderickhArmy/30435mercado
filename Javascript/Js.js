@@ -159,6 +159,9 @@ butt.addEventListener("click", mostrar);
 function showme(e){
 e.preventDefault();
 
+nivelesMostrados.innerHTML= '';
+
+
 fetch("../data.json")
 
     .then(res =>res.json())
