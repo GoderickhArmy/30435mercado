@@ -162,7 +162,7 @@ e.preventDefault();
 nivelesMostrados.innerHTML= '';
 
 
-fetch("../data.json")
+fetch("./data.json")
 
     .then(res =>res.json())
     .then(dato=> dato.forEach (e=> { 
