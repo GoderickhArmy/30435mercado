@@ -43,7 +43,7 @@ class Usuario {
 
 
 
-    // Lleva la ganancia del 50% al LocalStorage para ser mostrada mas adelante en un boton.
+    // Lleva la ganancia LocalStorage para ser mostrada mas adelante en un boton.
 
     calculoGanancia(indice) {
         let resultadoGanancia = (this.inversion * indice / 100) * this.years;
