@@ -2,7 +2,7 @@
 
 let usuariosExistentes = [];
 
-let indice; 
+let indice;
 let nombre = document.querySelector("#nombre")
 let apellido = document.querySelector("#apellido");
 let edad = document.querySelector("#edad");
@@ -20,22 +20,12 @@ let nivelesMostrados = document.querySelector("#nivelesMostrados");
 
 // Niveles de inversion
 
-const infoArray = [{
-
-    nombre: "Nivel 1: 5%",
-    indice: 5,
-},{
-    nombre: "Nivel 2: 10%",
-    indice: 10,
-},{
-    nombre: "Nivel 3: 15%",
-    indice: 15,
-}];
+let infoArray = [];
 
 
 infoArray.forEach(elemento => {
     nivel.innerHTML += `<option value="${elemento.indice}" id="${elemento.nombre}">${elemento.nombre}</option>
-`   
+`
 });
 
 
@@ -50,7 +40,7 @@ class Usuario {
         this.inversion = parseFloat(inversion);
         this.years = parseInt(years);
     };
-    
+
 
 
     // Lleva la ganancia del 50% al LocalStorage para ser mostrada mas adelante en un boton.
@@ -65,7 +55,7 @@ class Usuario {
 const crearUsuario = () => {
     const usuario1 = new Usuario(nombre.value, apellido.value, edad.value, inversion.value, years.value);
     usuariosExistentes.push(usuario1);
-    return(usuario1);
+    return (usuario1);
 };
 
 // Implementacion de sweet alert para las validaciones en el formulario
@@ -76,7 +66,7 @@ function Alertasweet() {
     Swal.fire({
         icon: 'error',
         text: 'Campo vacio, por favor rellene los campos!',
-    })
+    });
 };
 
 
@@ -102,7 +92,7 @@ boton.addEventListener("click", elemento => {
             icon: 'error',
             title: 'Oops...',
             text: 'Necesita ser mayor de edad!',
-        })
+        });
     }
     else if (inversion.value == '') {
         Alertasweet()
@@ -112,15 +102,14 @@ boton.addEventListener("click", elemento => {
             icon: 'error',
             title: 'Oops...',
             text: 'La inversion tiene que ser mayor a 2000',
-        })
+        });
     }
     else if (years.value == '') {
-        Alertasweet()
+        Alertasweet();
     }
     else {
-        let res = crearUsuario()
-        console.log(res);
-            lista.innerHTML = `
+        let res = crearUsuario();
+        lista.innerHTML = `
 
             <div class="innerbox">
             <h3>Ultima actualizacion</h3>
@@ -156,23 +145,39 @@ butt.addEventListener("click", mostrar);
 //Funcion que dentro tiene los datos previamente cargados de forma local 
 //y mostrados mediante un boton en el html.
 
-function showme(e){
-e.preventDefault();
+function showme(e) {
+    e.preventDefault();
 
-nivelesMostrados.innerHTML= '';
+    nivelesMostrados.innerHTML = '';
 
 
-fetch("./data.json")
+    fetch("./data.json")
 
-    .then(res =>res.json())
-    .then(dato=> dato.forEach (e=> { 
-        nivelesMostrados.innerHTML +=`
+        .then(res => res.json())
+        .then(dato => dato.forEach(e => {
+            nivelesMostrados.innerHTML += `
                     <ul>
                     <li>Nombre: ${e.nombre}</li>
                     <li>índice: ${e.indice}</li>
                     <li>Inversión Mínima: ${e.inversionMinima}</li>
                     </ul>`
-}));
+        }));
 };
 
 mostrarNiveles.addEventListener("click", showme);
+
+const obtenerData = () => {
+    fetch("./data.json")
+
+    .then(response => response.json())
+    .then(jsondata => {
+        jsondata.forEach(e => infoArray.push(e))
+        infoArray.forEach(elemento => {
+            nivel.innerHTML += `<option value="${elemento.indice}" id="${elemento.nombre}">${elemento.nombre}</option>
+        `
+        
+        });
+    });
+
+}; 
+obtenerData();
