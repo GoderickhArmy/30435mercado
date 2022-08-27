@@ -24,7 +24,7 @@ let infoArray = [];
 
 
 
-//Class-constr-method-----------------------
+//Class-constr-method--------------
 
 class Usuario {
     constructor(nombre, apellido, edad, inversion, years) {
