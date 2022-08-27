@@ -23,12 +23,6 @@ let nivelesMostrados = document.querySelector("#nivelesMostrados");
 let infoArray = [];
 
 
-infoArray.forEach(elemento => {
-    nivel.innerHTML += `<option value="${elemento.indice}" id="${elemento.nombre}">${elemento.nombre}</option>
-`
-});
-
-
 
 //Class-constr-method-----------------------
 
