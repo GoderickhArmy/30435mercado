@@ -121,6 +121,7 @@ boton.addEventListener("click", elemento => {
     };
 });
 
+
 //Muestra la ganancia obtenida previamente almacenada en el Localstorage 
 //al presionar el boton "ver ganancia obtenida"
 
