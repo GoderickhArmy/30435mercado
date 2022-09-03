@@ -1,14 +1,14 @@
 [{   
     "nombre": "Nivel 1: 5%",
     "indice": 5,
-    "inversionMinima": 500
+    "inversionMinima": 2000
 },{
     "nombre": "Nivel 2: 10%",
     "indice": 10,
-    "inversionMinima": 1000    
+    "inversionMinima": 2000    
 },{
     "nombre":"Nivel 3: 15%",
     "indice": 15,
-    "inversionMinima": 1500
+    "inversionMinima": 2000
 }
 ]

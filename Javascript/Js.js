@@ -95,11 +95,12 @@ boton.addEventListener("click", elemento => {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'La inversion tiene que ser mayor a 2000',
+            text: 'La inversion tiene que ser mayor a 2000'
         });
     }
     else if (years.value == '') {
         Alertasweet();
+    
     }
     else {
         let res = crearUsuario();
